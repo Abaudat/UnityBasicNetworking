@@ -1,1 +1,1 @@
-"# UnityBasicNetworking" 
+Very basic client-server networking implemented with unet's LLAPI.

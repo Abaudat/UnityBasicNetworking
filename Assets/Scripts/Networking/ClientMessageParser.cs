@@ -3,23 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class that parses all networking messages received by the client. Add cases in ParseMessage for all new Flags in NetworkingFlags.
+/// </summary>
 public class ClientMessageParser : MonoBehaviour {
 
-    private int id = -1;
+    private int id;
 
-    public void ParseMessage(byte[] message, int connectionId)
+    /// <summary>
+    /// Parse a message.
+    /// </summary>
+    /// <param name="message">Message to parse</param>
+    public void ParseMessage(byte[] message)
     {
         byte[] size = new byte[sizeof(int)];
         Buffer.BlockCopy(message, 0, size, 0, sizeof(int));
         byte[] data = new byte[BitConverter.ToInt32(size, 0)];
         Buffer.BlockCopy(message, sizeof(int) + 1, data, 0, data.Length);
-        switch (message[sizeof(int)])
+        switch (message[sizeof(int)]) // Add cases to this switch for all different types of message the client can receive.
         {
             case (byte)NetworkingFlags.Flags.DEBUG_MESSAGE:
                 OnDebugMessage(data);
-                break;
-            case (byte)NetworkingFlags.Flags.GAME_ID:
-                OnIdMessage(data);
                 break;
             default:
                 Debug.Log("WARNING: Unknown byte flag " + message[sizeof(int)] + " .");
@@ -27,15 +31,13 @@ public class ClientMessageParser : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Called when the client receives a debug message.
+    /// </summary>
+    /// <param name="data">Received data</param>
     void OnDebugMessage(byte[] data)
     {
         string message = MessageDecoder.DecodeDebugMessage(data);
         Debug.Log("Recieved debug message from server : " + message);
-    }
-
-    void OnIdMessage(byte[] data)
-    {
-        id = MessageDecoder.DecodeIdMessage(data);
-        Debug.Log("Received ID : " + id);
     }
 }
