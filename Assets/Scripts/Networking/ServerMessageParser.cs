@@ -25,7 +25,7 @@ public class ServerMessageParser : MonoBehaviour {
                 OnDebugMessage(data, connectionId);
                 break;
             default:
-                Debug.Log("WARNING: Unknown byte flag " + message[sizeof(int)] + " .");
+                Debug.LogWarning("WARNING: Unknown byte flag " + message[sizeof(int)] + " .");
                 break;
         }
     }

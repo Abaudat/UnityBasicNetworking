@@ -35,7 +35,7 @@ public class ClientNetworkingBase : MonoBehaviour {
         connectionId = NetworkTransport.Connect(hostId, SERVER_ADDRESS, SERVER_PORT, 0, out error);
         if((NetworkError)error != NetworkError.Ok)
         {
-            Debug.Log("WARNING: " + (NetworkError)error);
+            Debug.LogWarning("WARNING: " + (NetworkError)error);
         }
         else
         {
@@ -54,8 +54,12 @@ public class ClientNetworkingBase : MonoBehaviour {
             NetworkTransport.Send(hostId, connectionId, reliableChannelId, data, data.Length, out error);
             if ((NetworkError)error != NetworkError.Ok)
             {
-                Debug.Log("WARNING: " + (NetworkError)error);
+                Debug.LogWarning("WARNING: " + (NetworkError)error);
             }
+        }
+        else
+        {
+            Debug.Log("Cannot send to the server until we connect.");
         }
     }
 
@@ -70,8 +74,12 @@ public class ClientNetworkingBase : MonoBehaviour {
             NetworkTransport.Send(hostId, connectionId, stateUpdateChannelId, data, data.Length, out error);
             if ((NetworkError)error != NetworkError.Ok)
             {
-                Debug.Log("WARNING: " + (NetworkError)error);
+                Debug.LogWarning("WARNING: " + (NetworkError)error);
             }
+        }
+        else
+        {
+            Debug.Log("Cannot send to the server until we connect.");
         }
     }
 
@@ -106,7 +114,7 @@ public class ClientNetworkingBase : MonoBehaviour {
             }
             else
             {
-                Debug.Log("WARNING: " + (NetworkError)error);
+                Debug.LogWarning("WARNING: " + (NetworkError)error);
             }
         }
     }

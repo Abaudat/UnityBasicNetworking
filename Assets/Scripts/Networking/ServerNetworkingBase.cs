@@ -54,7 +54,7 @@ public class ServerNetworkingBase : MonoBehaviour {
         }
         else
         {
-            Debug.Log("WARNING: Trying to send to disconnected client " + connectionId);
+            Debug.LogWarning("WARNING: Trying to send to disconnected client " + connectionId);
         }
     }
 
@@ -75,7 +75,7 @@ public class ServerNetworkingBase : MonoBehaviour {
         }
         else
         {
-            Debug.Log("WARNING: Trying to send to disconnected client " + connectionId);
+            Debug.LogWarning("WARNING: Trying to send to disconnected client " + connectionId);
         }
     }
 
@@ -90,7 +90,7 @@ public class ServerNetworkingBase : MonoBehaviour {
             NetworkTransport.Send(hostId, connection, reliableChannelId, data, data.Length, out error);
             if ((NetworkError)error != NetworkError.Ok)
             {
-                Debug.Log("WARNING: " + (NetworkError)error);
+                Debug.LogWarning("WARNING: " + (NetworkError)error);
             }
         }
     }
@@ -113,7 +113,7 @@ public class ServerNetworkingBase : MonoBehaviour {
             }
             else
             {
-                Debug.Log("WARNING: Trying to send to disconnected client " + connection);
+                Debug.LogWarning("WARNING: Trying to send to disconnected client " + connection);
             }
         }
     }
@@ -153,7 +153,7 @@ public class ServerNetworkingBase : MonoBehaviour {
             }
             else
             {
-                Debug.Log("WARNING: " + (NetworkError)error);
+                Debug.LogWarning("WARNING: " + (NetworkError)error);
             }
         }
     }

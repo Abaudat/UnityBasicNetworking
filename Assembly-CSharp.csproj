@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4FB65278-1EBB-3D63-D308-C296FD8204EC}</ProjectGuid>
+    <ProjectGuid>{A8288530-07AD-CAA9-D7F1-4EA177162E15}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Initialization.cs" />
      <Compile Include="Assets\Scripts\Networking\ClientMessageParser.cs" />
      <Compile Include="Assets\Scripts\Networking\ClientNetworkingBase.cs" />
      <Compile Include="Assets\Scripts\Networking\ClientSendAPI.cs" />
@@ -60,6 +61,7 @@
      <Compile Include="Assets\Scripts\Networking\ServerMessageParser.cs" />
      <Compile Include="Assets\Scripts\Networking\ServerNetworkingBase.cs" />
      <Compile Include="Assets\Scripts\Networking\ServerSendAPI.cs" />
+     <Compile Include="Assets\SendMessage.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
