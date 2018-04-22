@@ -5,7 +5,7 @@ How to use the demo:
 - Clone this repo to your computer.
 - Open the folder "Networking Base" with Unity.
 - If needed, open the scene "Scenes/baseScene".
-- Press CTRL + B or got to the dropdown menu File and click on Build & Run.
+- Press CTRL + B or go to the dropdown menu File and click on Build & Run.
 - After a quick load, a configuration window will open.
 - Click the play button in unity and in the configuration window.
 - In the Unity editor, click on the Server button.
