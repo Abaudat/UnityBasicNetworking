@@ -103,17 +103,10 @@ public class ServerNetworkingBase : MonoBehaviour {
     {
         foreach (int connection in connections)
         {
-            if (connections.Contains(connection))
+            NetworkTransport.Send(hostId, connection, stateUpdateChannelId, data, data.Length, out error);
+            if ((NetworkError)error != NetworkError.Ok)
             {
-                NetworkTransport.Send(hostId, connection, stateUpdateChannelId, data, data.Length, out error);
-                if ((NetworkError)error != NetworkError.Ok)
-                {
-                    Debug.Log("WARNING: " + (NetworkError)error);
-                }
-            }
-            else
-            {
-                Debug.LogWarning("WARNING: Trying to send to disconnected client " + connection);
+                Debug.Log("WARNING: " + (NetworkError)error);
             }
         }
     }
