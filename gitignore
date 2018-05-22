@@ -5,6 +5,7 @@
 
 # Unity specific files
 Executables/
+Library/
 UnityPackageManager/
 obj/Debug
 
